@@ -1,0 +1,11 @@
+train_datagen = ImageDataGenerator(rescale=1./255,
+                                   horizontal_flip = True,
+                                   vertical_flip = True,
+                                   shear_range = 0.5,
+                                   brightness_range = [0.5, 1.5],
+                                   zoom_range = 0.2,
+                                   width_shift_range = 0.1,
+                                   height_shift_range = 0.1,
+                                   rotation_range = 30,
+                                   fill_mode = 'nearest'
+                                  )

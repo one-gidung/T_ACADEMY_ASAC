@@ -1,0 +1,24 @@
+순서,컬럼영문명,컬럼한글명
+1,baseline value, 기준치 태아 심박수 (FHR)
+2,accelerations,초당 가속 횟수
+3,fetal_movement,초당 태아의 움직임 수
+4,uterine_contractions,초당 자궁 수축 횟수
+5,light_decelerations,초당 빛 감속(LDs) 수
+6,severe_decelerations,초당 심각한 감속(SDs) 수
+7,prolongued_decelerations,초당 지속된 감속(PDs) 수
+8,abnormal_short_term_variability,비정상 단기 변동이 있는 시간의 백분율
+9,mean_value_of_short_term_variability,단기 변동성의 평균값
+10,percentage_of_time_with_abnormal_long_term_variability,비정상 장기 변동이 있는 시간의 백분율
+11,mean_value_of_long_term_variability,장기 변동성의 평균값
+12,histogram_width,히스토그램의 너비
+13,histogram_min,히스토그램 최소값
+14,histogram_max,히스토그램 최대값
+15,histogram_number_of_peaks,검사 히스토그램의 피크 개수
+16,histogram_number_of_zeroes,검사 히스토그램의 0의 개수
+17,histogram_mode,히스토그램 최빈값
+18,histogram_mean,히스토그램 평균값
+19,histogram_median,히스토그램 평균값
+20,histogram_variance,히스토그램 분산
+21,histogram_tendency,히스토그램 경향
+22,fetal_health,태아의 건강
+,,1 (정상) / 2 (의심) / 3 (병적)

@@ -1,0 +1,21 @@
+def arima_aic_check(data, order,sort = 'AIC'):
+    order_list = []
+    aic_list = []
+    bic_lsit = []
+    for p in range(order[0]):
+        for d in range(order[1]):
+            for q in range(order[2]):
+                model = ARIMA(data, order=(p,d,q))
+                try:
+                    model_fit = model.fit()
+                    c_order = f'p:{p} d:{d} q:{q}'
+                    aic = model_fit.aic
+                    bic = model_fit.bic
+                    order_list.append(c_order)
+                    aic_list.append(aic)
+                    bic_list.append(bic)
+                except:
+                    pass
+    result_df = pd.DataFrame(list(zip(order_list, aic_list)),columns=['order','AIC'])
+    result_df.sort_values(sort, inplace=True)
+    return result_df
