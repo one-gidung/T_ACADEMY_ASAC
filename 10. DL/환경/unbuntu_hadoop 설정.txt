@@ -1,0 +1,35 @@
+1. 다운로드후 압축해제
+2. .bashrc 에 추가
+export HADOOP_HOME=/home/mobile/hadoop-2.10.2
+export PATH=$PATH:$HADOOP_HOME/bin
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+3.하웁디렉터리 생성
+namenode, datanode
+mkdir -p hadoop_store/hdfs/namenode
+chmod 777 hadoop_store/hdfs/namenode
+mkdir -p hadoop_store/hdfs/datanode
+chmod 777 hadoop_store/hdfs/datanode
+
+4. 하둡 환경
+master... master, slave
+/etc/hadoop아래
+coresite.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml
+마스터의 경우 maters(마스터로 운영할ip), slaves( 데이터노트 ip 나열)
+
+5. 
+마스터에서만
+하둡서버 실행
+hdfs namenode -format (하둡파일시스템으로) 한번만
+
+sbin아래
+start-dfs.sh
+start-yarn.sh
+
+start-all.sh
+stop-all.sh
+
+7. web ui
+http://localhost:50070
+
+

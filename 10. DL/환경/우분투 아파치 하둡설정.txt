@@ -1,0 +1,127 @@
+0 
+순위(모든 multi node 구성에 공통적용)
+1. sudo passwd root 패스워드 생성
+jdk 8버전 설치
+2. sudo apt install openjdk-8-jdk 
+3. sudo apt install net-tools
+ifconfig 명령을 통해 ip 확인
+
+4. 패스 워드 생략하고 slave node 데몬 실행
+sudo apt install openssh-server openssh-client
+5. host 등록
+su 후 root 로그인후 
+vi /etc/hosts (gedit /etc/hosts)
+ip master
+ip slave
+ex)
+127.0.0.1	localhost
+#127.0.0.1	ubuntu
+192.x.x.x	master
+192.x.x.x	slave1
+192.x.x.x	slave2
+6./etc/hostname  ==>master로
+
+
+1. 터미널 실행: ctrl + alt + t
+2. 폰트사이즈 edit-preference
+3. wget http://mirror.apache-kr.org/hadoop/common/hadoop-2.10.0/hadoop-2.10.0.tar.gz
+4. mobile home으로 이동후 압축해제
+tar xzvf hadoop-2.10.0.tar.gz  
+
+환경변수 설정
+1. 탐색기(ctrl+h) 히든파일이 보여진다
+2. .bashrc 
+
+export HADOOP_HOME=/home/mobile/hadoop-2.10.0
+export PATH=$PATH:$HADOOP_HOME/bin
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+환경변수 적용
+. .bashrc or source .bashrc
+
+3.
+namenode, datanode
+mkdir -p hadoop_store/hdfs/namenode
+#chown mobile:hadoop -R /home/mobile/hadoop_store/hdfs/namenode
+chmod 777 hadoop_store/hdfs/namenode
+mkdir -p hadoop_store/hdfs/datanode
+chmod 777 hadoop_store/hdfs/datanode
+
+
+4. spark download
+tar xzvf spark-2.4.6-bin-hadoop2.7.tgz
+5. path 추가
+export PYSPARK_PYTHON=python3
+export PYTHONPATH=$PYTHONPATH:/home/mobile/spark-2.4.6-bin-hadoop2.7/python
+export PYTHONPATH=$PYTHONPATH:/home/mobile/spark-2.4.6-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip
+export SPARK_HOME=/home/mobile/spark-2.4.6-bin-hadoop2.7
+=============================================
+6. master --> slave로 복사
+7. slave 의 /etc/hostname slave 로 변경 reboot
+8. slave: ping master ,master: ping slave
+
+9. master 인증키 생성후 slave 로 복사
+ssh-keygen -t rsa
+cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+
+(slave에서)
+mkdir .ssh (slave 실행후)
+(마스터에서)
+scp ~/.ssh/id_rsa.pub mobile@slave:/home/mobile/.ssh/authorized_keys
+ssh slave 확인
+
+=======================================
+10. 하둡 환경
+master... master, slave
+
+11.
+
+하둡서버 실행
+hdfs namenode -format (하둡파일시스템으로) 한번만
+
+sbin아래
+start-dfs.sh
+start-yarn.sh
+
+start-all.sh
+stop-all.sh
+
+master jps (yarn, name..)
+slave (datanode)
+
+12 web ui
+http://localhost:50070
+
+====================
+spark 설정
+---------------------
+conf/slaves
+host이름나열
+slave1
+slave2
+
+conf/spark-env.sh
+export SPARK_HOME=/home/mobile/spark-2.4.6-bin-hadoop2.7 
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export SPARK_MASTER_IP=master
+export SPARK_WORKER_INSTNACES=3
+export SPARK_WORKER_CORES=2
+export SPARK_WORKER_MEMORY=2g
+
+sbin/start-all.sh 
+
+web ui
+master:8080
+
+===
+ubuntu jupyte notebook
+
+sudo apt install python3-pip
+sudo pip3 install notebook
+
+
+
+
+
+
+

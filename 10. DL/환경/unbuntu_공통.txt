@@ -1,0 +1,26 @@
+#공통
+0. sudo passwd root :root패스워드
+1. sudo apt install openjdk-8-jdk; jdk8 설치
+2. sudo apt install net-tools: 네트웍상태확인 ifconfig
+3. sudo apt install openssh-server openssh-client
+4. /etc/hosts ( 마스터 슬레이브 모두)
+127.0.0.1	localhost
+#127.0.0.1	ubuntu
+192.x.x.x	master
+192.x.x.x	slave1
+192.x.x.x	slave2
+5. /etc/hostname master,
+6.  상태확인
+ping master  (slave에서)
+ping slave (master 에서) 
+
+7. 인증키생성후 slave에 인증키복사
+ssh-keygen -t rsa
+cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+
+(마스터에서)
+scp ~/.ssh/id_rsa.pub mobile@slave:/home/mobile/.ssh/authorized_keys
+ssh slave 확인(패스워드 확인)
+
+
+

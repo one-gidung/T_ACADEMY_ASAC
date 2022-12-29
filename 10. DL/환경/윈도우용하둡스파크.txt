@@ -1,0 +1,11 @@
+1.jdk ( https://www.oracle.com/kr/java/technologies/javase/javase-jdk8-downloads.html )
+jdk-8u251-windows-x64.exe
+
+2. window hadoop
+http://www.barik.net/archive/2015/01/19/172716/
+hadoop-2.6.0.tar.gz 다운로드
+
+3. spark
+https://spark.apache.org/downloads.html
+spark-2.4.6-bin-hadoop2.7.tgz 다운로드
+

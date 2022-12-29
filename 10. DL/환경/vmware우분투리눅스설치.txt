@@ -1,0 +1,6 @@
+1. vmware player 설치
+2. ubuntu 18.04 iso
+3. create new ....
+4. iso 파일선택
+5. mobile 계정 생성
+6. 설치경로...master 로 바꿈

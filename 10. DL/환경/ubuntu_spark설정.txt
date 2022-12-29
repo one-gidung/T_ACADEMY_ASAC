@@ -1,0 +1,23 @@
+1. 다운로드후 압축해제 (master, slave)
+
+2. path 추가 ( .bashrc )
+export PYSPARK_PYTHON=python3
+export PYTHONPATH=$PYTHONPATH:/home/mobile/spark-3.3.1-bin-hadoop2/python
+export PYTHONPATH=$PYTHONPATH:/home/mobile/spark-3.3.1-bin-hadoop2/python/lib/py4j-0.10.9.5-src.zip
+export SPARK_HOME=/home/mobile/spark-3.3.1-bin-hadoop2
+3.conf/slaves
+host이름나열
+slave1
+slave2
+4.conf/spark-env.sh
+export SPARK_HOME=/home/mobile/spark-2.4.6-bin-hadoop2.7 
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export SPARK_MASTER_IP=master
+export SPARK_WORKER_INSTNACES=3
+export SPARK_WORKER_CORES=2
+export SPARK_WORKER_MEMORY=2g
+
+4. sbin/start-all.sh
+
+
+web master:8080 
